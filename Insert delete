@@ -20,8 +20,8 @@ class LinkedList
     public int length = 0;
     public LinkedList()
     {
-        this.head = null;
-        this.tail = null;
+        this.head = head;
+        this.tail = tail;
     }
 
     public void Add(int data)
@@ -137,20 +137,23 @@ class LinkedList
         }
     }
 
-    public static void Main(string[] args)
+    public static void Main()
     {
+        int i = 0;
         LinkedList list = new LinkedList();
-        list.Add(1);
-        list.Add(2);
-        list.Add(3);
-        list.Add(4);
-        list.Add(5);
-        Console.WriteLine("Daftar Linked List :");
+        Console.WriteLine("Masukan angka : ");
+        int x =Convert.ToInt32(Console.ReadLine());
+        while (i != x)
+        {
+            i++;
+            list.Add(i);  
+        }
+        Console.Write("Daftar Linked List :");
         list.Print();
         list.InsertAtIndex(0, 50);
         Console.WriteLine("\nSetelah Insert di Head");
         list.Print();
-        list.InsertAtIndex(5, 20);
+        list.InsertAtIndex(x, 20);
         Console.WriteLine("\nSetelah Insert di Tail");
         list.Print();
         list.InsertAtIndex(3, 100);
@@ -159,10 +162,10 @@ class LinkedList
         list.DeleteAtIndex(0);
         Console.WriteLine("\nSetelah Delete Head");
         list.Print();
-        list.DeleteAtIndex(6);
+        list.DeleteAtIndex(x + 1);
         Console.WriteLine("\nSetelah Delete Tail");
         list.Print();
-        list.DeleteAtIndex(2);
+        list.DeleteAtIndex(1);
         Console.WriteLine("\nSetelah Delete di Index ke 2");
         list.Print();
         Console.ReadLine();
